@@ -187,7 +187,7 @@ const Contact = ({ currentTheme = "light" }) => {
       ref={sectionRef}
       className={`w-full contact relative top-20 ${
         currentTheme === "dark"
-          ? "bg-black"
+          ? "bg-none"
           : "bg-[url('/footer-bg-color.png')] bg-[length:90%_auto]"
       }  px-[12%] py-10 scroll-mt-20 bg-no-repeat bg-center`}
     >
