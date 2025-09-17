@@ -185,11 +185,7 @@ const Contact = ({ currentTheme = "light" }) => {
     <div
       id="contactme"
       ref={sectionRef}
-      className={`w-full contact relative top-20 ${
-        currentTheme === "dark"
-          ? "bg-none"
-          : "bg-[url('/footer-bg-color.png')] bg-[length:90%_auto]"
-      }  px-[12%] py-10 scroll-mt-20 bg-no-repeat bg-center`}
+      className="w-full contact relative top-20  px-[12%] py-10 scroll-mt-20 bg-no-repeat bg-center"
     >
       <h4 ref={subtitleRef} className="text-center mb-2 text-lg font-Ovo">
         Connect with me
