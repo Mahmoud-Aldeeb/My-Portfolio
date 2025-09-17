@@ -1,26 +1,90 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  color-scheme: dark;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+* {
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
   }
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.group:hover .project-card-image {
+  transform: scale(1.05);
+  transition: transform 200ms ease-in-out;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-[var(--background)] text-[var(--foreground)];
+}
+
+@theme inline {
+  --color-lightHover: #fcf4ff;
+  --color-darkHover: #2a004a;
+  --color-darkTheme: #11001f;
+  --font-Ovo: "Ovo", serif;
+  --font-Outfit: "Outfit", sans-serif;
+}
+.lightHover:hover {
+  background-color: var(--color-lightHover);
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.font-Ovo {
+  font-family: var(--font-Ovo);
+}
+
+.font-Outfit {
+  font-family: var(--font-Outfit);
+}
+
+.shadow-darks:hover {
+  box-shadow: 4px 4px 0px #000;
+}
+.shadow-light {
+  box-shadow: 4px 4px 0px #fff;
+}
+.gridTemplateCol {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.service-card {
+  transform-origin: center;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+@media (max-width: 768px) {
+  .gridTemplateCol {
+    grid-template-columns: 1fr !important;
+  }
 }
