@@ -16,11 +16,10 @@ export default async function ProjectsPage({ searchParams }) {
   const data = await fetchPortfolioData();
   const cookieStore = await cookies();
   const currentTheme = cookieStore.get("theme")?.value || "light";
+  const { initialCategory } = await searchParams;
   const validCategories = ["all", "react", "nextjs", "javascript", "jQuery"];
-  const selectedCategory = validCategories.includes(
-    searchParams.initialCategory
-  )
-    ? searchParams.initialCategory
+  const selectedCategory = validCategories.includes(initialCategory)
+    ? initialCategory
     : "all";
 
   const filteredWork =

@@ -178,6 +178,7 @@ const NavbarClient = ({ currentTheme }) => {
                     (index === 0 && pathname === "/") ||
                     (index !== 0 &&
                       pathname === "/" &&
+                      typeof window !== "undefined" &&
                       window.location.hash ===
                         `#${item.toLowerCase().replace(" ", "")}`)
                       ? "page"

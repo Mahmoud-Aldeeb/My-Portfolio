@@ -6,8 +6,8 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { cookies } from "next/headers";
 
-export default function Home() {
-  const cookieStore = cookies();
+export default async function Home() {
+  const cookieStore = await cookies();
   const currentTheme = cookieStore.get("theme")?.value || "light";
 
   return (
