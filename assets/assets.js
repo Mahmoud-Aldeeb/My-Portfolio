@@ -106,9 +106,9 @@ export const workData = [
       "Tailwind CSS",
       "JWT",
     ],
-    liveUrl: "https://github.com/Mahmoud-Aldeeb",
-    githubUrl: "https://github.com/Mahmoud-Aldeeb",
-    date: "2024",
+    liveUrl: "https://employee-management-system-rust-seven.vercel.app/",
+    githubUrl: "https://github.com/Mahmoud-Aldeeb/Employee-management-system",
+    date: "2025",
   },
   {
     title: "Hotel Booking Platform",
@@ -218,7 +218,7 @@ export const infoList = [
     icon: assets.edu_icon,
     iconDark: assets.edu_icon_dark,
     title: "Education",
-    description: "B.Tech in Computer Science",
+    description: "B.Tech in Computer Science, 6 October University",
   },
   {
     icon: assets.project_icon,

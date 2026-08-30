@@ -125,12 +125,12 @@ const Header = ({ currentTheme = "light" }) => {
         </span>
       </h3>
 
-      <h1
+      {/* <h1
         ref={titleRef}
         className="text-3xl sm:text-6xl lg:text-[66px] font-Ovo flex flex-col text-center leading-tight"
       >
         Full Stack Developer <br /> based in Tanta.
-      </h1>
+      </h1> */}
 
       <p
         ref={descRef}
@@ -144,7 +144,7 @@ const Header = ({ currentTheme = "light" }) => {
       <div className="flex flex-col sm:flex-row items-center gap-4 mt-6 md:mt-8">
         <a
           ref={addToButtonsRef}
-          href="#contact"
+          href="#contactme"
           className="px-10 py-3 border rounded-full font-Outfit bg-black text-white border-white flex items-center gap-2 transition-all hover:bg-gray-800 hover:scale-105 shadow-md"
           aria-label="Connect with me"
           style={{ transitionDuration: "200ms" }}
