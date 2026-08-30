@@ -43,7 +43,7 @@ const NavbarClient = ({ currentTheme }) => {
       gsap.fromTo(
         navUlRef.current,
         { opacity: 0, y: -20 },
-        { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }
+        { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
       );
 
       navItemsRefs.current.forEach((item) => {
@@ -102,7 +102,7 @@ const NavbarClient = ({ currentTheme }) => {
       if (sectionId !== "/" && pathname === "/") {
         setTimeout(() => {
           const element = document.getElementById(
-            item.toLowerCase().replace(" ", "")
+            item.toLowerCase().replace(" ", ""),
           );
           if (element) {
             element.scrollIntoView({ behavior: "smooth" });
@@ -110,7 +110,7 @@ const NavbarClient = ({ currentTheme }) => {
         }, 100);
       }
     },
-    [router, closeMenu, pathname]
+    [router, closeMenu, pathname],
   );
 
   const addToNavItemsRefs = useCallback((el, index) => {
@@ -189,7 +189,7 @@ const NavbarClient = ({ currentTheme }) => {
                   <div className="underline absolute bottom-0 left-0 h-[2px] bg-[var(--foreground)] w-0"></div>
                 </a>
               </li>
-            )
+            ),
           )}
         </ul>
       </div>

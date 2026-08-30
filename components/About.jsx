@@ -64,7 +64,7 @@ const About = ({ currentTheme = "light" }) => {
             duration: 1.2,
             ease: "power3.out",
           },
-          "-=1.0"
+          "-=1.0",
         )
         .to(
           cardsRef.current,
@@ -77,7 +77,7 @@ const About = ({ currentTheme = "light" }) => {
             stagger: 0.2,
             ease: "back.out(1.7)",
           },
-          "-=0.8"
+          "-=0.8",
         )
         .to(
           toolsRef.current,
@@ -90,7 +90,7 @@ const About = ({ currentTheme = "light" }) => {
             stagger: 0.15,
             ease: "elastic.out(1, 0.5)",
           },
-          "-=0.6"
+          "-=0.6",
         );
 
       const backTimeline = gsap.timeline({ paused: true });
@@ -123,7 +123,7 @@ const About = ({ currentTheme = "light" }) => {
 
   return (
     <div
-      id="about"
+      id="aboutme"
       ref={containerRef}
       className="w-full px-[12%] py-10 relative top-20 scroll-mt-20"
     >
@@ -143,10 +143,10 @@ const About = ({ currentTheme = "light" }) => {
         <div ref={textRef} className="flex-1">
           <p className="mb-10 max-w2xl font-Ovo">
             I'm a Full Stack Developer from Egypt specializing in the MERN
-            Stack. I build end-to-end web applications using React, Next.js,
-            and Tailwind on the frontend, and Node.js, Express, NestJS,
-            MongoDB, TypeORM & Prisma on the backend. I focus on clean
-            architecture, scalable APIs, and real-world projects.
+            Stack. I build end-to-end web applications using React, Next.js, and
+            Tailwind on the frontend, and Node.js, Express, NestJS, MongoDB,
+            TypeORM & Prisma on the backend. I focus on clean architecture,
+            scalable APIs, and real-world projects.
           </p>
           <ul className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
             {infoList.map((info, index) => (
@@ -169,11 +169,15 @@ const About = ({ currentTheme = "light" }) => {
                 <h3 className="my-4 font-semibold text-gray-800 dark:text-slate-100">
                   {info.title}
                 </h3>
-                <p className="text-gray-600 dark:text-slate-400 text-sm">{info.description}</p>
+                <p className="text-gray-600 dark:text-slate-400 text-sm">
+                  {info.description}
+                </p>
               </li>
             ))}
           </ul>
-          <h4 className="my-6 text-gray-700 dark:text-slate-300 font-Ovo">Tools I Use</h4>
+          <h4 className="my-6 text-gray-700 dark:text-slate-300 font-Ovo">
+            Tools I Use
+          </h4>
           <ul className="flex items-center gap-3 sm:gap-5 flex-wrap">
             {toolsData.map((tool, index) => (
               <li
