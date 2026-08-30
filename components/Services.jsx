@@ -174,10 +174,10 @@ const Services = ({ currentTheme = "light" }) => {
         {serviceData.map((service, index) => (
           <div
             ref={addToServicesRef}
-            className="border border-gray-300 rounded-xl p-6 cursor-pointer lightHover shadow-sm service-card opacity-0 transition-all duration-300 hover:shadow-md"
+            className="border border-gray-300 dark:border-slate-700 rounded-xl p-6 cursor-pointer lightHover shadow-sm service-card opacity-0 transition-all duration-300 hover:shadow-md dark:bg-slate-900/60 dark:hover:bg-slate-800/80"
             key={index}
           >
-            <div className="bg-[#FF388B] rounded-lg w-14 h-14 flex items-center justify-center mb-4">
+            <div className="bg-cyan-500 dark:bg-cyan-600 rounded-lg w-14 h-14 flex items-center justify-center mb-4">
               <Image
                 src={service.icon}
                 alt={service.title}
@@ -186,10 +186,10 @@ const Services = ({ currentTheme = "light" }) => {
                 className="w-7 h-7"
               />
             </div>
-            <h4 className="my-4 font-semibold text-gray-700 ">
+            <h4 className="my-4 font-semibold text-gray-800 dark:text-slate-100">
               {service.title}
             </h4>
-            <p className="text-gray-600 text-sm">{service.description}</p>
+            <p className="text-gray-600 dark:text-slate-400 text-sm">{service.description}</p>
           </div>
         ))}
       </div>

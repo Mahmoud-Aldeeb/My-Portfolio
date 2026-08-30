@@ -19,7 +19,7 @@ export default function NavbarServer({ currentTheme = "light" }) {
         )}
       </div>
       <nav
-        className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 bg-[var(--background)]`}
+        className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 bg-[var(--background)]/80 backdrop-blur-md border-b border-gray-200/50 dark:border-slate-800/50`}
       >
         <a href="/">
           <Image
@@ -39,8 +39,8 @@ export default function NavbarServer({ currentTheme = "light" }) {
               <li key={index} className="relative">
                 <a
                   className={`font-Ovo text-lg ${
-                    currentTheme === "dark" ? "text-white" : "text-gray-800"
-                  } relative hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200`}
+                    currentTheme === "dark" ? "text-slate-200" : "text-gray-800"
+                  } relative hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors duration-200`}
                   href={
                     index === 0
                       ? "/"
@@ -48,7 +48,7 @@ export default function NavbarServer({ currentTheme = "light" }) {
                   }
                 >
                   {item}
-                  <div className="underline absolute bottom-0 left-0 h-[2px] bg-[var(--foreground)] w-0"></div>
+                  <div className="underline absolute bottom-0 left-0 h-[2px] bg-cyan-500 dark:bg-cyan-400 w-0"></div>
                 </a>
               </li>
             )

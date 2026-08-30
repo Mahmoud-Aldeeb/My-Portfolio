@@ -9,7 +9,7 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const About = () => {
+const About = ({ currentTheme = "light" }) => {
   const containerRef = useRef(null);
   const imageRef = useRef(null);
   const textRef = useRef(null);
@@ -142,43 +142,51 @@ const About = () => {
         </div>
         <div ref={textRef} className="flex-1">
           <p className="mb-10 max-w2xl font-Ovo">
-            I’m a frontend developer from Egypt with a solid foundation in
-            React, Next.js, and Tailwind CSS. As a recent graduate, I’ve built
-            and documented real-world projects that reflect my focus on clean
-            design and scalable code. You can explore my latest projects below,
-            each built with attention to detail and a focus on usability.
+            I'm a Full Stack Developer from Egypt specializing in the MERN
+            Stack. I build end-to-end web applications using React, Next.js,
+            and Tailwind on the frontend, and Node.js, Express, NestJS,
+            MongoDB, TypeORM & Prisma on the backend. I focus on clean
+            architecture, scalable APIs, and real-world projects.
           </p>
           <ul className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
             {infoList.map((info, index) => (
               <li
                 key={index}
                 ref={addToCardsRef}
-                className="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer lightHover hover:-translate-y-1 duration-500 shadow-darks"
+                className="border-[0.5px] border-gray-300 dark:border-slate-700 rounded-xl p-6 cursor-pointer lightHover hover:-translate-y-1 hover:border-cyan-400 dark:hover:border-cyan-500 duration-500 transition-all dark:bg-slate-900/40"
               >
                 <Image
-                  src={info.icon}
+                  src={
+                    currentTheme === "dark"
+                      ? info.iconDark || info.icon
+                      : info.icon
+                  }
                   alt={info.title}
                   className="w-7 mt-3"
                   width={28}
                   height={28}
                 />
-                <h3 className="my-4 font-semibold text-gray-700 ">
+                <h3 className="my-4 font-semibold text-gray-800 dark:text-slate-100">
                   {info.title}
                 </h3>
-                <p className="text-gray-600 text-sm">{info.description}</p>
+                <p className="text-gray-600 dark:text-slate-400 text-sm">{info.description}</p>
               </li>
             ))}
           </ul>
-          <h4 className="my-6 text-gray-700 font-Ovo">Tools I Use</h4>
+          <h4 className="my-6 text-gray-700 dark:text-slate-300 font-Ovo">Tools I Use</h4>
           <ul className="flex items-center gap-3 sm:gap-5 flex-wrap">
             {toolsData.map((tool, index) => (
               <li
                 key={index}
                 ref={addToToolsRef}
-                className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer lightHover hover:-translate-y-1 duration-500"
+                className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-300 dark:border-slate-600 dark:bg-slate-900/40 rounded-lg cursor-pointer lightHover hover:-translate-y-1 duration-500"
               >
                 <Image
-                  src={tool}
+                  src={
+                    currentTheme === "dark"
+                      ? tool.iconDark || tool.icon || tool
+                      : tool.icon || tool
+                  }
                   alt="Development tool"
                   className="w-5 sm:w-7"
                   width={28}

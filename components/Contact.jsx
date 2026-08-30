@@ -208,10 +208,10 @@ const Contact = ({ currentTheme = "light" }) => {
             required
             name="name"
             ref={(el) => addToInputRefs(el, 0)}
-            className={`flex-1 p-3 outline-none border-[0.5px] rounded-md ${
+            className={`flex-1 p-3 outline-none border-[0.5px] rounded-md bg-transparent transition-colors duration-200 ${
               currentTheme === "dark"
-                ? "border-gray-600 text-white placeholder-gray-400 "
-                : "border-gray-400 text-black placeholder-gray-500 "
+                ? "border-slate-600 text-white placeholder-slate-400 bg-slate-900/50 focus:border-cyan-400"
+                : "border-gray-400 text-gray-900 placeholder-gray-400 bg-gray-50 focus:border-cyan-500"
             }`}
           />
           <input
@@ -220,10 +220,10 @@ const Contact = ({ currentTheme = "light" }) => {
             required
             name="email"
             ref={(el) => addToInputRefs(el, 1)}
-            className={`flex-1 p-3 outline-none border-[0.5px] rounded-md ${
+            className={`flex-1 p-3 outline-none border-[0.5px] rounded-md bg-transparent transition-colors duration-200 ${
               currentTheme === "dark"
-                ? "border-gray-600 text-white placeholder-gray-400 "
-                : "border-gray-400 text-black placeholder-gray-500 "
+                ? "border-slate-600 text-white placeholder-slate-400 bg-slate-900/50 focus:border-cyan-400"
+                : "border-gray-400 text-gray-900 placeholder-gray-400 bg-gray-50 focus:border-cyan-500"
             }`}
           />
         </div>
@@ -233,16 +233,16 @@ const Contact = ({ currentTheme = "light" }) => {
           required
           name="message"
           ref={textareaRef}
-          className={`w-full p-4 outline-none border-[0.5px] rounded-md mb-6 ${
+          className={`w-full p-4 outline-none border-[0.5px] rounded-md mb-6 bg-transparent transition-colors duration-200 ${
             currentTheme === "dark"
-              ? "border-gray-600 text-white placeholder-gray-400 "
-              : "border-gray-400 text-black placeholder-gray-500 "
+              ? "border-slate-600 text-white placeholder-slate-400 bg-slate-900/50 focus:border-cyan-400"
+              : "border-gray-400 text-gray-900 placeholder-gray-400 bg-gray-50 focus:border-cyan-500"
           }`}
         />
         <button
           type="submit"
           ref={buttonRef}
-          className="w-max px-8 py-3 border rounded-full font-Outfit flex items-center justify-center gap-2 bg-black/80 text-white mx-auto hover:bg-black duration-500 transition-colors"
+          className="w-max px-8 py-3 border rounded-full font-Outfit flex items-center justify-center gap-2 bg-black/80 text-white mx-auto hover:bg-cyan-600 dark:hover:bg-cyan-500 duration-500 transition-colors border-transparent"
         >
           Send Message
           <Image

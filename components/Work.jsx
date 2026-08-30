@@ -16,7 +16,6 @@ const Work = ({ currentTheme = "light" }) => {
   const subtitleRef = useRef(null);
   const descriptionRef = useRef(null);
   const portfolioItemsRef = useRef([]);
-  const buttonRef = useRef(null);
 
   const addToPortfolioRefs = useCallback((el, index) => {
     if (el && !portfolioItemsRef.current.includes(el)) {
@@ -83,37 +82,21 @@ const Work = ({ currentTheme = "light" }) => {
 
         gsap.fromTo(
           item,
-          { opacity: 0, y: 100 },
+          { opacity: 0, y: 80 },
           {
             opacity: 1,
             y: 0,
-            duration: 1,
-            delay: index * 0.2,
+            duration: 0.8,
+            delay: index * 0.15,
             ease: "power3.out",
             scrollTrigger: {
               trigger: item,
-              start: "top 85%",
+              start: "top 88%",
               toggleActions: "restart none none reset",
             },
           }
         );
       });
-
-      gsap.fromTo(
-        buttonRef.current,
-        { opacity: 0, scale: 0.8 },
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 1,
-          ease: "back.out(1.7)",
-          scrollTrigger: {
-            trigger: buttonRef.current,
-            start: "top 90%",
-            toggleActions: "restart none none reset",
-          },
-        }
-      );
     }, sectionRef);
 
     return () => ctx.revert();
@@ -123,134 +106,115 @@ const Work = ({ currentTheme = "light" }) => {
     <section
       id="mywork"
       ref={sectionRef}
-      className="w-full px-[12%] py-10 scroll-mt-20 relative top-20"
+      className="w-full px-[8%] lg:px-[12%] py-10 scroll-mt-20 relative top-20"
     >
       <h4 ref={subtitleRef} className="text-center mb-2 text-lg font-Ovo">
         My portfolio
       </h4>
-      <h2 ref={titleRef} className="text-center text-5xl font-Ovo">
-        My latest work
+      <h2 ref={titleRef} className="text-center text-4xl sm:text-5xl font-Ovo">
+        Featured Projects
       </h2>
       <p
         ref={descriptionRef}
-        className="mb-10 max-w-2xl font-Ovo text-center mx-auto mt-5"
+        className="mb-10 max-w-2xl font-Ovo text-center mx-auto mt-5 text-gray-600 dark:text-slate-300"
       >
-        Welcome to my web development portfolio! Explore a collection of
-        projects showcasing my expertise in front-end development.
+        Explore my full stack web applications. Each project is crafted with
+        clean architecture, modern tech stacks, and production-ready code.
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-10">
         {workData.map((work, index) => (
           <div
             key={index}
             ref={(el) => addToPortfolioRefs(el, index)}
-            className="group relative overflow-hidden rounded-2xl cursor-pointer transform transition-all duration-500 hover:scale-105"
+            className="group relative flex flex-col justify-between overflow-hidden rounded-2xl cursor-pointer transition-all duration-300 border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 hover:shadow-lg dark:hover:border-cyan-500/50 hover:border-cyan-400"
           >
-            <div className="aspect-video bg-no-repeat bg-cover bg-center relative  overflow-hidden">
-              <Image
-                src={work.bgImage}
-                alt={work.title}
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-500"
-                loading="lazy"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            </div>
+            <div>
+              <div className="aspect-video relative overflow-hidden bg-gray-100 dark:bg-slate-800">
+                <Image
+                  src={work.bgImage}
+                  alt={work.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
 
-            <div className="p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-b-2xl">
-              <div className="flex items-center justify-between">
-                <div className="flex-1">
-                  <h3 className="font-semibold text-gray-800 dark:text-white">
+              <div className="p-6">
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <h3 className="font-bold text-xl text-gray-900 dark:text-slate-100 font-Outfit group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
                     {work.title}
                   </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-2">
-                    {work.description}
-                  </p>
+                  {work.date && (
+                    <span className="text-xs px-2.5 py-1 rounded-full border border-gray-200 dark:border-slate-700 text-gray-500 dark:text-slate-400 font-mono">
+                      {work.date}
+                    </span>
+                  )}
                 </div>
-                <div className="flex-shrink-0 ml-3">
-                  <Link
-                    href={work.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 bg-lime-400 rounded-full flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12 shadow-md"
-                    aria-label={`View ${work.title} project`}
-                  >
-                    <Image
-                      src={assets.send_icon}
-                      alt="View project"
-                      width={20}
-                      height={20}
-                      className="w-5 h-5"
-                    />
-                  </Link>
-                </div>
-              </div>
 
-              <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-100 dark:border-gray-700">
-                <div className="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400">
-                  <span className="flex items-center gap-1">
-                    <svg
-                      className="w-4 h-4"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    {work.date || "Recent"}
-                  </span>
-                  <Link
-                    href="https://fanciful-tarsier-64e8c2.netlify.app/"
-                    className="flex items-center gap-1"
-                  >
-                    <svg
-                      className="w-4 h-4"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    Web App
-                  </Link>
-                </div>
+                <p className="text-sm text-gray-600 dark:text-slate-300 line-clamp-3 leading-relaxed mb-4">
+                  {work.description}
+                </p>
+
+                {work.technologies && work.technologies.length > 0 && (
+                  <div className="flex flex-wrap gap-1.5 mb-6">
+                    {work.technologies.map((tech, tIdx) => (
+                      <span
+                        key={tIdx}
+                        className="text-[11px] font-medium px-2.5 py-1 rounded-md border border-gray-200 dark:border-slate-700/80 bg-gray-50 dark:bg-slate-800/80 text-gray-700 dark:text-slate-300"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
+            </div>
+
+            <div className="px-6 pb-6 pt-0 flex items-center justify-between border-t border-gray-100 dark:border-slate-800/80 mt-auto pt-4">
+              <Link
+                href={work.liveUrl || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-full border border-gray-300 dark:border-slate-700 hover:border-cyan-500 dark:hover:border-cyan-400 text-gray-800 dark:text-slate-200 hover:bg-cyan-50 dark:hover:bg-slate-800 transition-colors"
+                aria-label={`Live Demo of ${work.title}`}
+              >
+                <span>Live Demo</span>
+                <svg
+                  className="w-3.5 h-3.5 text-cyan-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
+              </Link>
+
+              <Link
+                href={work.githubUrl || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-full bg-gray-900 dark:bg-slate-800 text-white hover:bg-gray-800 dark:hover:bg-slate-700 transition-colors"
+                aria-label={`GitHub Code for ${work.title}`}
+              >
+                <svg
+                  className="w-4 h-4 fill-current"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                </svg>
+                <span>Code</span>
+              </Link>
             </div>
           </div>
         ))}
-      </div>
-
-      <div className="text-center">
-        <Link
-          href="/pages/projects"
-          ref={buttonRef}
-          className="inline-flex items-center justify-center px-8 py-4 border-2 rounded-full font-medium group font-Outfit bg-black text-white border-white gap-3 transition-all duration-300 hover:bg-gray-800 hover:scale-105 shadow-md"
-        >
-          <span>View Full Projects</span>
-          <div
-            className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 ${
-              currentTheme === "dark" ? "bg-lime-400/20" : "bg-gray-800/10"
-            }`}
-          >
-            <Image
-              src={
-                currentTheme === "dark"
-                  ? assets.right_arrow_bold_dark
-                  : assets.right_arrow_bold
-              }
-              alt="Right arrow"
-              width={16}
-              height={16}
-              className="w-4 transform group-hover:translate-x-1 transition-transform"
-            />
-          </div>
-        </Link>
       </div>
     </section>
   );

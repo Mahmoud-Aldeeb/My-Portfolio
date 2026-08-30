@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 export async function setTheme(currentTheme) {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const newTheme = currentTheme === "dark" ? "light" : "dark";
 
   cookieStore.set("theme", newTheme, {

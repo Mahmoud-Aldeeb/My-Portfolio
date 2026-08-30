@@ -46,15 +46,23 @@ body {
 }
 
 @theme inline {
-  --color-lightHover: #fcf4ff;
-  --color-darkHover: #2a004a;
+  --color-lightHover: #ecfeff;
+  --color-darkHover: #083344;
   --color-darkTheme: #11001f;
   --font-Ovo: "Ovo", serif;
   --font-Outfit: "Outfit", sans-serif;
 }
+
+/* ── Light mode hover ── */
 .lightHover:hover {
   background-color: var(--color-lightHover);
 }
+
+/* ── Dark mode hover ── */
+.dark .lightHover:hover {
+  background-color: var(--color-darkHover);
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -67,8 +75,12 @@ html {
   font-family: var(--font-Outfit);
 }
 
+/* ── Shadows ── */
 .shadow-darks:hover {
-  box-shadow: 4px 4px 0px #000;
+  box-shadow: 4px 4px 0px #0891b2;
+}
+.dark .shadow-darks:hover {
+  box-shadow: 4px 4px 0px #22d3ee;
 }
 .shadow-light {
   box-shadow: 4px 4px 0px #fff;
@@ -87,4 +99,32 @@ html {
   .gridTemplateCol {
     grid-template-columns: 1fr !important;
   }
+}
+
+/* ── Dark mode: مساعدة النصوص الرمادية تبقى واضحة ── */
+.dark .text-gray-600 {
+  color: #cbd5e1 !important;
+}
+.dark .text-gray-700 {
+  color: #e2e8f0 !important;
+}
+.dark .text-gray-500 {
+  color: #94a3b8 !important;
+}
+.dark .text-gray-800 {
+  color: #f1f5f9 !important;
+}
+
+/* ── Dark mode: border colors ── */
+.dark .border-gray-400 {
+  border-color: #475569 !important;
+}
+.dark .border-gray-300 {
+  border-color: #334155 !important;
+}
+.dark .border-gray-100 {
+  border-color: #1e293b !important;
+}
+.dark .border-gray-200 {
+  border-color: #1e293b !important;
 }

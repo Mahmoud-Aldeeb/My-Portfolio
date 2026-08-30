@@ -9,7 +9,7 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const Header = () => {
+const Header = ({ currentTheme = "light" }) => {
   const profileRef = useRef(null);
   const nameRef = useRef(null);
   const handIconRef = useRef(null);
@@ -41,14 +41,14 @@ const Header = () => {
         profileRef.current,
         { y: 30, opacity: 0, scale: 0.9 },
         { y: 0, opacity: 1, scale: 1, duration: 0.6 },
-        0
+        0,
       );
 
       tl.fromTo(
         nameRef.current,
         { y: 20, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.5 },
-        0.2
+        0.2,
       );
 
       tl.fromTo(
@@ -61,28 +61,28 @@ const Header = () => {
           duration: 0.5,
           ease: "back.out(1.5)",
         },
-        0.3
+        0.3,
       );
 
       tl.fromTo(
         titleRef.current,
         { y: 40, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.6 },
-        0.4
+        0.4,
       );
 
       tl.fromTo(
         descRef.current,
         { y: 30, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.5 },
-        0.6
+        0.6,
       );
 
       tl.fromTo(
         buttonsRef.current,
         { y: 20, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.4, stagger: 0.1 },
-        0.7
+        0.7,
       );
 
       return () => {
@@ -129,16 +129,16 @@ const Header = () => {
         ref={titleRef}
         className="text-3xl sm:text-6xl lg:text-[66px] font-Ovo flex flex-col text-center leading-tight"
       >
-        Frontend web developer <br /> based in Alexandria.
+        Full Stack Developer <br /> based in Tanta.
       </h1>
 
       <p
         ref={descRef}
         className="max-w-2xl text-center mx-auto font-Outfit opacity-80 text-lg mt-4"
       >
-        Junior Frontend Engineer | Building responsive web apps with React &
-        Tailwind | Actively building real-world projects and sharing progress
-        publicly.
+        Full Stack Developer specializing in MERN Stack | Building scalable APIs
+        with Node.js, Express & NestJS | MongoDB, TypeORM & Prisma | React &
+        Next.js on the frontend.
       </p>
 
       <div className="flex flex-col sm:flex-row items-center gap-4 mt-6 md:mt-8">
@@ -161,15 +161,19 @@ const Header = () => {
 
         <a
           ref={addToButtonsRef}
-          href="/Mahmoud-Elsebaei-Eldeeb.pdf"
+          href="/Mahmoud_Elsebai_cv_FullStack_MERN.pdf"
           download
-          className="px-10 py-3 border rounded-full font-Outfit border-gray-500 flex items-center gap-2 transition-all hover:bg-gray-100 hover:scale-105"
+          className="px-10 py-3 border rounded-full font-Outfit border-gray-400 dark:border-slate-500 text-gray-800 dark:text-slate-200 flex items-center gap-2 transition-all hover:bg-gray-100 dark:hover:bg-slate-800 hover:border-cyan-400 dark:hover:border-cyan-500 hover:scale-105"
           aria-label="Download my resume"
           style={{ transitionDuration: "200ms" }}
         >
           My resume
           <Image
-            src={assets.download_icon}
+            src={
+              currentTheme === "dark"
+                ? assets.download_icon_dark
+                : assets.download_icon
+            }
             alt=""
             className="w-4"
             aria-hidden="true"

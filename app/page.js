@@ -12,8 +12,8 @@ export default async function Home() {
 
   return (
     <>
-      <Header />
-      <About />
+      <Header currentTheme={currentTheme} />
+      <About currentTheme={currentTheme} />
       <Services currentTheme={currentTheme} />
       <Work currentTheme={currentTheme} />
       <Contact currentTheme={currentTheme} />

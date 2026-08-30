@@ -33,21 +33,17 @@ import right_arrow from "./right-arrow.webp";
 import send_icon from "./send-icon.webp";
 import right_arrow_bold from "./right-arrow-bold.webp";
 import right_arrow_bold_dark from "./right-arrow-bold-dark.webp";
+import download_icon_dark from "./download-icon-dark.webp";
+import github_dark from "./github-dark.webp";
+import send_icon_dark from "./send-icon-dark.webp";
 
 // project image
-import react1 from "./projects/react1.webp";
-import react2 from "./projects/react2.webp";
-import react3 from "./projects/react3.webp";
-import react4 from "./projects/react4.webp";
-import react5 from "./projects/react5.webp";
-import react6 from "./projects/react6.webp";
-import jQuery1 from "./projects/jQuery1.webp";
-import jQuery4 from "./projects/jQuery4.webp";
-import js1 from "./projects/js1.webp";
-import js4 from "./projects/js4.webp";
-import js5 from "./projects/js5.webp";
-import next1 from "./projects/next1.webp";
-import next2 from "./projects/next2.webp";
+
+import employee_management from "./projects/employee.png";
+import hotel_booking from "./projects/hotel.png";
+import delivery_app from "./projects/delivery.png";
+import prescription from "./projects/pos.png";
+import blog from "./projects/Blog.png";
 
 export const assets = {
   user_image,
@@ -69,6 +65,9 @@ export const assets = {
   mail_icon_dark,
   profile_img,
   download_icon,
+  download_icon_dark,
+  github_dark,
+  send_icon_dark,
   hand_icon,
   header_bg_color,
   moon_icon,
@@ -85,75 +84,124 @@ export const assets = {
   send_icon,
   right_arrow_bold,
   right_arrow_bold_dark,
-  react1,
-  react2,
-  react3,
-  react4,
-  react5,
-  react6,
-  jQuery1,
-  jQuery4,
-  js1,
-  js4,
-  js5,
-  next1,
-  next2,
+  employee_management,
+  hotel_booking,
+  delivery_app,
+  prescription,
+  blog,
 };
 
 export const workData = [
   {
-    title: "React E-commerce Search",
+    title: "Employee Management System",
     description:
-      "Modern e-commerce built with React, featuring real-time analytics and responsive design.",
-    bgImage: "/react1.webp",
-    liveUrl: "https://fanciful-tarsier-64e8c2.netlify.app/",
-    date: "Jan 2024",
+      "Full Stack MERN platform featuring employee records management, role-based access control (RBAC), attendance tracking, and automated payroll reporting.",
+    // bgImage: "/react5.webp",
+    bgImage: employee_management,
+    technologies: [
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Tailwind CSS",
+      "JWT",
+    ],
+    liveUrl: "https://github.com/Mahmoud-Aldeeb",
+    githubUrl: "https://github.com/Mahmoud-Aldeeb",
+    date: "2024",
   },
   {
-    title: "Real Estate App",
+    title: "Hotel Booking Platform",
     description:
-      "Real Estate App is a modern property listing platform built with React, featuring dynamic search",
-    bgImage: "/react3.webp",
-    liveUrl: "https://chipper-dieffenbachia-48ab08.netlify.app/",
-    date: "Apr 2024",
+      "Full Stack MERN application for hotel reservations, featuring room availability, booking management, payment integration, and user authentication.",
+    bgImage: hotel_booking,
+    technologies: [
+      "React",
+      "Tailwind CSS",
+      "Clerk",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Cloudinary",
+    ],
+    liveUrl: "https://hotel-booking-frontend-two-rho.vercel.app/",
+    githubUrl: "https://github.com/Mahmoud-Aldeeb/hotel-booking",
+    date: "2026",
   },
   {
-    title: "Age Calculator",
+    title: "E-commerce & Delivery Service Web Application",
     description:
-      "Simple age calculator that computes age based on user-inputted birth date.",
-    bgImage: "/js1.webp",
-    liveUrl: "https://spectacular-toffee-fb2798.netlify.app/",
-    date: "Aug 2023",
+      "Full Stack application for online shopping and delivery services, featuring product listings, shopping cart, order tracking, and payment processing.",
+    bgImage: delivery_app,
+    technologies: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Prisma",
+      "Inngest",
+      "Express",
+      "PostgreSQL",
+    ],
+    liveUrl: "https://delivery-app-nine-tau.vercel.app/",
+    githubUrl: "https://github.com/Mahmoud-Aldeeb/Delivery-app",
+    date: "2026",
+  },
+  {
+    title: "Medical Appointment Booking Platform",
+    description:
+      "Full Stack MERN application for scheduling medical appointments, featuring doctor profiles, appointment management, patient records, and secure authentication.",
+    bgImage: prescription,
+    technologies: [
+      "React",
+      "Tailwind CSS",
+      "Mongoose",
+      "Express",
+      "Cloudinary",
+    ],
+    liveUrl: "https://prescription-user.vercel.app/",
+    githubUrl: "https://github.com/Mahmoud-Aldeeb/prescription-Backend",
+    date: "2025",
+  },
+  {
+    title: "Blogging Platform with User Authentication",
+    description:
+      "Full Stack MERN application for creating and managing blog posts, featuring user authentication, content management, and responsive design.",
+    bgImage: blog,
+    technologies: ["React", "Redux Toolkit", "Express", "MongoDB", "Helmet"],
+    liveUrl: "https://blog-frontend-psi-beryl.vercel.app/",
+    githubUrl: "https://github.com/Mahmoud-Aldeeb/Blog-Backend",
+    date: "2025",
   },
 ];
 
 export const serviceData = [
   {
     icon: assets.res_icon,
-    title: " Responsive Web Development",
+    title: "Full Stack Web Development",
     description:
-      "I specialize in crafting visually stunning and highly functional websites that deliver seamless performance across all devices, from mobile to desktop.",
+      "Building end-to-end web applications with React & Next.js on the frontend, and Node.js, Express or NestJS on the backend — fully integrated and production-ready.",
     link: "",
   },
   {
     icon: assets.atom_icon,
-    title: "React & Next.js Development",
+    title: "REST API & NestJS Development",
     description:
-      "Building scalable components and dynamic pages using React and Next.js, with clean code structure and modular architecture...",
+      "Designing and building scalable RESTful APIs using Node.js, Express, and NestJS with clean architecture, DTOs, guards, and modular structure.",
     link: "",
   },
   {
     icon: assets.integration_icon,
-    title: "API Integration & Error Handling",
+    title: "Database Design (MongoDB, TypeORM & Prisma)",
     description:
-      "Connecting frontend apps to real-time data using REST APIs, with defensive programming to handle missing or undefined responses...",
+      "Modeling and managing databases using MongoDB with Mongoose, PostgreSQL with TypeORM or Prisma — including migrations, relations, and query optimization.",
     link: "",
   },
   {
     icon: assets.uptime_icon,
-    title: "Performance Optimization",
+    title: "Performance & Code Quality",
     description:
-      "Improving load speed and responsiveness using lazy loading, code splitting, and best practices...",
+      "Improving load speed and maintainability using lazy loading, code splitting, TypeScript, and backend best practices for clean scalable code.",
     link: "",
   },
 ];
@@ -162,9 +210,9 @@ export const infoList = [
   {
     icon: assets.code_icon,
     iconDark: assets.code_icon_dark,
-    title: "Languages",
+    title: "Languages & Frameworks",
     description:
-      "HTML5, CSS3, JavaScript React Js, Next Js, Tailwind CSS, Bootstrap",
+      "React, Next.js, Node.js, Express, NestJS, MongoDB, TypeORM, Prisma, Tailwind CSS, TypeScript",
   },
   {
     icon: assets.edu_icon,
@@ -181,11 +229,11 @@ export const infoList = [
 ];
 
 export const toolsData = [
-  assets.vscode,
-  assets.firebase,
-  assets.figma,
-  assets.git,
-  assets.mongodb,
+  { icon: assets.vscode, iconDark: assets.vscode },
+  { icon: assets.firebase, iconDark: assets.firebase },
+  { icon: assets.figma, iconDark: assets.figma },
+  { icon: assets.git, iconDark: assets.git },
+  { icon: assets.mongodb, iconDark: assets.github_dark },
 ];
 
 export const portfolioData = [

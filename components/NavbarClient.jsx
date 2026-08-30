@@ -167,7 +167,7 @@ const NavbarClient = ({ currentTheme }) => {
                 <a
                   className={`font-Ovo text-lg ${
                     currentTheme === "dark" ? "text-white" : "text-gray-800"
-                  } block py-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200`}
+                  } block py-2 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors duration-200`}
                   onClick={() => handleNavClick(item, index)}
                   href={
                     index === 0
